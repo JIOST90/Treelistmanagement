@@ -4,14 +4,16 @@ namespace app\controllers;
 
 use Yii;
 use yii\filters\AccessControl;
-use yii\web\Controller;
-use yii\web\Response;
 use yii\filters\VerbFilter;
+use yii\web\Response;
 use app\models\LoginForm;
 use app\models\ContactForm;
+use app\models\MenuItemsForm;
+use app\models\jobs\GetCategoryItem;
 
-class SiteController extends Controller
+class SiteController extends BaseController
 {
+
     /**
      * @inheritdoc
      */
@@ -39,29 +41,24 @@ class SiteController extends Controller
     }
 
     /**
-     * @inheritdoc
-     */
-    public function actions()
-    {
-        return [
-            'error' => [
-                'class' => 'yii\web\ErrorAction',
-            ],
-            'captcha' => [
-                'class' => 'yii\captcha\CaptchaAction',
-                'fixedVerifyCode' => YII_ENV_TEST ? 'testme' : null,
-            ],
-        ];
-    }
-
-    /**
      * Displays homepage.
      *
      * @return string
      */
     public function actionIndex()
     {
-        return $this->render('index');
+        $form = new MenuItemsForm();
+
+        $categories = $this->dispatch(
+            (new GetCategoryItem())
+                ->parent()
+                ->forCategory()
+        );
+//d($categories);
+        return $this->render('index', [
+            'model' => $form,
+            'categories' => ['Главные' => $categories],
+        ]);
     }
 
     /**
@@ -122,5 +119,10 @@ class SiteController extends Controller
     public function actionAbout()
     {
         return $this->render('about');
+    }
+
+    public function actionCreateItem()
+    {
+
     }
 }
