@@ -19,6 +19,19 @@ $config = [
         'cache' => [
             'class' => 'yii\caching\FileCache',
         ],
+        'urlManager' => [
+            'enablePrettyUrl' => true,
+            'showScriptName' => false,
+            'rules' => [
+                '' => 'site/index',
+                'category/create-element' => 'category/create-element',
+                'category/update-element/<id:\d+>' => 'category/update-element',
+                'category/delete-element/<id:\d+>' => 'category/delete-element',
+                'category/create-element/<id:\d+>' => 'category/create-element',
+                'category/get-children-elements/<id:\d+>' => 'category/get-children-elements',
+                '<controller:\w+>/<action:\w+>' => '<controller>/<action>',
+            ],
+        ],
         'user' => [
             'identityClass' => 'app\models\User',
             'enableAutoLogin' => true,
@@ -43,14 +56,16 @@ $config = [
             ],
         ],
         'db' => $db,
-        /*
-        'urlManager' => [
-            'enablePrettyUrl' => true,
-            'showScriptName' => false,
-            'rules' => [
-            ],
-        ],
-        */
+//        'urlManager' => [
+//            'showScriptName' => false,	// Disable index.php
+//            'enablePrettyUrl' => true,	// Disable r= routes
+//            'enableStrictParsing' => true,
+//            'rules' => [
+//                'categoryItems/index' => 'categoryItems/index',
+//                '<controller:\w+>/<action:\w+>' => '<controller>/<action>',
+//                '<controller:\w+>' => '<controller>/index',
+//            ],
+//        ],
     ],
     'params' => $params,
 ];
