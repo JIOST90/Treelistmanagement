@@ -2,6 +2,13 @@
     "name": "jiost90/treelistmanagement",
     "description": "testtask",
     "minimum-stability": "dev",
+    "repositories": [
+        {
+          "type": "vcs",
+          "url": "https://github.com/JIOST90/Treelistmanagement"
+        }
+    ],
     "require-dev": {
+
     }
 }
