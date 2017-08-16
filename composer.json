@@ -1,8 +1,9 @@
 {
-    "name": "jiost90/treelistmanagement",
+    "name": "JIOST90/Treelistmanagement",
     "description": "testtask",
-    "minimum-stability": "dev",
+    "minimum-stability": "stable",
+    "version": "1.0.0",
     "require": {
-        "acme/hello-world": "dev-master"
+        "JIOST90/Treelistmanagement": "master"
     }
 }
