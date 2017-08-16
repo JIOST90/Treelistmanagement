@@ -1,9 +1,10 @@
 {
     "name": "JIOST90/Treelistmanagement",
     "description": "testtask",
-    "minimum-stability": "stable",
+    "minimum-stability": "dev",
+    "prefer-stable" : true,
     "version": "1.0.0",
     "require": {
-        "JIOST90/Treelistmanagement": "master"
+        "JIOST90/Treelistmanagement": "2.0.*@dev"
     }
 }
