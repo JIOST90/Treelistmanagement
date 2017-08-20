@@ -1,8 +1,7 @@
 {
-    "repositories": [
-        {
-            "type": "vcs",
-            "url": "https://github.com/JIOST90/Treelistmanagement"
-        }
-    ]
+    "name": "JIOST90/Treelistmanagement",
+    "description": "A short description of what your package does",
+    "require": {
+        "php": "^5.3.3 || ^7.0"
+    }
 }
